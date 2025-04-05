@@ -1,0 +1,86 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="login-screen" id="loginScreen">
+      <h2>Private Two-Person Chat</h2>
+      <div class="form-group">
+        <label for="nameInput">Your Name</label>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input type="password" id="passwordInput" placeholder="Enter shared password">
+      </div>
+      <button id="loginButton">Enter Chat</button>
+      <p class="login-info">Only two people can use this chat app</p>
+    </div>
+
+    <div class="chat-container hidden" id="chatContainer">
+      <div class="settings-panel">
+        <h3>Customize</h3>
+        <div class="online-status">
+          <h4>Online Status</h4>
+          <div id="userStatus"></div>
+        </div>
+        
+        <div class="wallpaper-settings">
+          <h4>Change Wallpaper</h4>
+          <div class="wallpaper-options">
+            <div class="wallpaper-option" data-wallpaper="default"></div>
+            <div class="wallpaper-option" data-wallpaper="gradient"></div>
+            <div class="wallpaper-option" data-wallpaper="bubbles"></div>
+            <div class="wallpaper-option" data-wallpaper="hearts"></div>
+            <div class="wallpaper-option" data-wallpaper="stars"></div>
+          </div>
+        </div>
+        
+        <div class="quick-message-settings">
+          <h4>Quick Messages</h4>
+          <div class="quick-message-box">
+            <label for="quickMsg1">Quick Message 1 (Shift+1):</label>
+            <input type="text" id="quickMsg1" class="quick-msg-input" placeholder="Enter your message">
+          </div>
+          <div class="quick-message-box">
+            <label for="quickMsg2">Quick Message 2 (Shift+2):</label>
+            <input type="text" id="quickMsg2" class="quick-msg-input" placeholder="Enter your message">
+          </div>
+          <div class="quick-message-box">
+            <label for="quickMsg3">Quick Message 3 (Shift+3):</label>
+            <input type="text" id="quickMsg3" class="quick-msg-input" placeholder="Enter your message">
+          </div>
+          <button id="saveQuickMsgs">Save Quick Messages</button>
+        </div>
+      </div>
+
+      <div class="chat-area">
+        <div class="messages" id="messages"></div>
+        
+        <div class="input-area">
+          <input type="text" id="messageInput" placeholder="Type a message...">
+          <button id="sendButton">Send</button>
+          <button id="recordButton">🎤</button>
+          <div id="recordingIndicator" class="hidden">Recording... <span id="recordingTime">0:00</span></div>
+          <button id="stopRecordButton" class="hidden">Stop</button>
+        </div>
+        
+        <div class="quick-buttons">
+          <button class="quick-button" id="quickBtn1">Quick 1</button>
+          <button class="quick-button" id="quickBtn2">Quick 2</button>
+          <button class="quick-button" id="quickBtn3">Quick 3</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
