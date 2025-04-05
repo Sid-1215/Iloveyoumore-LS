@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const userStatusDiv = document.getElementById('userStatus');
   
   // Constants - shared password can be changed
-  const SHARED_PASSWORD = "I am so pancakes and I miss you";
+  const SHARED_PASSWORD = "passwordLS";
   
   // App state
   let username = '';
